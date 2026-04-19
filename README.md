@@ -1,6 +1,6 @@
-# ru-trans
+# TerminalTranslator
 
-Simple script to translate English words or sentences into Russian. Uses the `deep-translator` library.
+Simple script to translate words or sentences between languages from the terminal. Uses the `deep-translator` library.
 
 ## How to use
 
