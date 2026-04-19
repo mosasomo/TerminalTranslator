@@ -1,6 +1,6 @@
 # TerminalTranslator
 
-Simple script to translate words or sentences between languages from the terminal. Uses the `deep-translator` library.
+Simple translator inside the terminal. Uses the `deep-translator` library.
 
 ## How to use
 
@@ -27,5 +27,4 @@ Simple script to translate words or sentences between languages from the termina
 
 5. Type any word or sentence and hit enter. Type `exit` to quit.
 
-## Why?
-Just needed a fast way to get translations without opening a browser every time.
+Just needed a quick way to translate without opening a browser every time.
