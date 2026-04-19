@@ -21,7 +21,7 @@ Simple translate between languages from the terminal. Uses the `deep-translator`
 
 ## How to use
 
-Once installed, just type:
+Once installed, open the command and type:
 ```bash
 trans
 ```
