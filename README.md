@@ -27,4 +27,6 @@ Simple translator inside the terminal. Uses the `deep-translator` library.
 
 5. Type any word or sentence and hit enter. Type `exit` to quit.
 
+## ?
+
 Just needed a quick way to translate without opening a browser every time.
