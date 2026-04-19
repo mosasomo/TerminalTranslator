@@ -4,15 +4,34 @@ import argparse
 
 def list_languages():
     langs = GoogleTranslator().get_supported_languages(as_dict=True)
+    sorted_langs = sorted(langs.items())
+    
     print("\nSupported languages (Code: Name):")
-    for name, code in langs.items():
+    for name, code in sorted_langs:
         print(f"{code}: {name}")
+    
+    print("\n--- Language Search ---")
+    while True:
+        search = input("Enter search term to filter (or 'q' to exit search): ").strip().lower()
+        if search == 'q':
+            break
+        
+        matches = [(name, code) for name, code in sorted_langs 
+                   if search in name.lower() or search in code.lower()]
+        
+        if not matches:
+            print(f"No matches found for '{search}'")
+        else:
+            print(f"\nMatches for '{search}':")
+            for name, code in matches:
+                print(f"{code}: {name}")
+            print()
 
 def main():
     parser = argparse.ArgumentParser(description="Simple Translator")
-    parser.add_argument("--src", default="en", help="Source language code (default: en)")
-    parser.add_argument("--tgt", default="ru", help="Target language code (default: ru)")
-    parser.add_argument("--list", action="store_true", help="List all supported language codes")
+    parser.add_argument("-from", dest="src", default="en", help="Source language code (default: en)")
+    parser.add_argument("-to", dest="tgt", default="ru", help="Target language code (default: ru)")
+    parser.add_argument("--list", action="store_true", help="List all supported language codes with search")
     
     args = parser.parse_args()
 

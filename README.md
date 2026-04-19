@@ -28,7 +28,7 @@ trans
 *By default, it translates from English to Russian.*
 
 ### Options:
-*   **Choose languages:** `trans --src en --tgt fr`
-*   **List codes:** `trans --list`
+*   **Choose languages:** `trans -from en -to fr`
+*   **List codes:** `trans --list` (includes alphabetical sorting and interactive search)
 
 Type any word or sentence and hit enter. Type `exit` to quit.
