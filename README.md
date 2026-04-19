@@ -13,8 +13,19 @@ Simple script to translate English words or sentences into Russian. Uses the `de
    ```bash
    python translate.py
    ```
+   *By default, it translates from English to Russian.*
 
-3. Type any English word or sentence and hit enter to get the Russian translation. Type `exit` to quit.
+3. **Choose different languages:**
+   ```bash
+   python translate.py --src en --tgt fr
+   ```
+
+4. **List all supported languages:**
+   ```bash
+   python translate.py --list
+   ```
+
+5. Type any word or sentence and hit enter. Type `exit` to quit.
 
 ## Why?
-Just needed a fast way to get Russian translations without opening a browser every time.
+Just needed a fast way to get translations without opening a browser every time.

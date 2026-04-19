@@ -1,17 +1,40 @@
 from deep_translator import GoogleTranslator
 import sys
+import argparse
+
+def list_languages():
+    langs = GoogleTranslator().get_supported_languages(as_dict=True)
+    print("\nSupported languages (Code: Name):")
+    for name, code in langs.items():
+        print(f"{code}: {name}")
 
 def main():
-    print("--- English to Russian Translator ---")
+    parser = argparse.ArgumentParser(description="Simple Translator")
+    parser.add_argument("--src", default="en", help="Source language code (default: en)")
+    parser.add_argument("--tgt", default="ru", help="Target language code (default: ru)")
+    parser.add_argument("--list", action="store_true", help="List all supported language codes")
+    
+    args = parser.parse_args()
+
+    if args.list:
+        list_languages()
+        return
+
+    src_name = GoogleTranslator().get_supported_languages(as_dict=True).get(args.src, args.src)
+    tgt_name = GoogleTranslator().get_supported_languages(as_dict=True).get(args.tgt, args.tgt)
+
+    print(f"--- {src_name.title()} to {tgt_name.title()} Translator ---")
     print("Type your word or sentence below (or type 'exit' to quit):")
     
-    # Initialize the translator
-    translator = GoogleTranslator(source='en', target='ru')
+    try:
+        translator = GoogleTranslator(source=args.src, target=args.tgt)
+    except Exception as e:
+        print(f"Error initializing translator: {e}")
+        return
 
     while True:
         try:
-            # Get user input
-            text = input("\nEnglish: ").strip()
+            text = input(f"\n{args.src.upper()}: ").strip()
             
             if not text:
                 continue
@@ -20,11 +43,8 @@ def main():
                 print("Goodbye!")
                 break
 
-            # Translate the text
             translation = translator.translate(text)
-            
-            # Print the result
-            print(f"Russian: {translation}")
+            print(f"{args.tgt.upper()}: {translation}")
             
         except KeyboardInterrupt:
             print("\nGoodbye!")
