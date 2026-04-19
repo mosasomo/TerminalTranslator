@@ -15,28 +15,13 @@ Simple translate between languages from the terminal. Uses the `deep-translator`
    pip install -r requirements.txt
    ```
 
-## Setup Shortcut (Optional)
-
-To use the `trans` command from anywhere:
-
-### Windows
-1. Copy the path to `translate.py`.
-2. Create a file named `trans.bat` in a folder that is in your PATH (like `C:\Windows`).
-3. Add this to the file:
-   ```batch
-   @echo off
-   python "C:\path\to\your\TerminalTranslator\translate.py" %*
-   ```
-
-### Linux/macOS
-1. Add this to your `.bashrc` or `.zshrc`:
-   ```bash
-   alias trans='python3 /path/to/TerminalTranslator/translate.py'
-   ```
+3. **Auto-Setup Shortcut:**
+   *   **Windows:** Double-click `install.bat`.
+   *   **Linux/macOS:** Run `bash install.sh`.
 
 ## How to use
 
-Run the script (or use the `trans` command if set up):
+Once installed, just type:
 ```bash
 trans
 ```
